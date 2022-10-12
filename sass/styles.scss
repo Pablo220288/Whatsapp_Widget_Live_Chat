@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color:darkgrey;
+    background-color:rgb(89, 89, 89);
 }
 
 .wahtsapp_container{
@@ -31,10 +31,11 @@ body{
         user-select: none;
         position: relative;
         outline: transparent;
-        background-color: rgb(255, 255, 255);
+        background-color: #ffffff;
         margin-bottom: 20px;
         margin-right: 20px;
         margin-left: 20px;
+        transition: background-color 0.3s ease 0s;
         &::before{
             content: '1';
             width: 15px;
@@ -55,6 +56,24 @@ body{
         .wahtsapp_pop_icono{
             font-size: 1.7rem;
             color: #4fce5d;
+            transition: color 0.3s ease 0s;
+        }
+        &:hover{
+            background-color: #4fce5d;
+        }
+        &:hover .wahtsapp_pop_icono{
+            color: #ffffff;
+        }
+        .pulso{
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #4fce5d;
+            border-radius: 500px;
+            z-index: -1;
         }
     }
     .wahtsapp_chat_container{
@@ -199,11 +218,11 @@ body{
                     align-items: center;
                     gap: 4px;
                     .chat_dots{
-                        width: 10px;
-                        height: 10px;
+                        width: 8px;
+                        height: 8px;
                         background-color: #000000;
                         border-radius: 50%;
-                        opacity: 0.5;
+                        opacity: 0.3;
                         animation: dots 1.2s linear infinite;
                         &:nth-child(2){
                             animation-delay: 0.4s;
@@ -249,12 +268,27 @@ body{
 }
 @keyframes dots {
     0%{
-        opacity: 0.5;
+        opacity: 0.3;
     }
     50%{
-        opacity: 0.8;
+        opacity: 0.7;
     }
     100%{
-        opacity: 0.5;
+        opacity: 0.3;
     }
 }
+.animate {
+    animation: latido 2s linear;
+}
+@keyframes latido {
+    0% { 
+        width:54px; 
+        height:54px; 
+        border:3px solid #4fce5d; 
+    }
+    100% { 
+        width:80px; 
+        height:80px; 
+        border:3px solid transparent; 
+    }
+  }
